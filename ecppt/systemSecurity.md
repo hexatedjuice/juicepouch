@@ -34,7 +34,7 @@
 * pop - retrieves info and adds 4/8 bi (32/64) from esp
   - ex. POP EAX, stores value to eax and increments esp
   - not zeroed until ow
-* stakc frames
+* stack frames
   - prlg - preps stack to being use
   - epilg - resets stack to prlg settings
   - stack is made up of logical stack frames
@@ -47,4 +47,39 @@
     1. pgm recieves params passed form funx
     2. eip reset to init call location
   - keeps track of each funx and ctrls term
+    1. funx called and args eval
+    2. ctrl flow jumps to body of funx and exec
+    3. on end, return exec and returns to og funx call
+* prologue and epilogue
+```
+push ebp
+mov ebp, esp
+sub esp, X      // X is offset for args
+```
 
+```
+mov esp, ebp
+pop ebp         // shortened to "leave"
+ret
+```
+* endianess
+  - big: lsb stored in higher mem and msb in lower
+  - small: vv
+* nop: no operation struct
+  - x86: 0x90
+  - nop sledding used in bofs
+* security implementations
+  - aslr
+  - data exec prevention
+  - stack cookies (canary)
+# assemblers, debuggers, and tools
+* assmblrs translate asm to machine code (eg. masm, gas, nasm, fasm)
+* on creation of obj file, linker needed to make exec file
+  - linkers link obj files to make exec file
+  - ex. kernel32.dll and user32.dll
+    * needed to access certain windows libs
+```
+asm file  > assembler   > obj file  > linker  > exec
+                          obj files   ^
+                          static libs ^
+```
