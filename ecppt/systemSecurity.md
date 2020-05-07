@@ -83,3 +83,23 @@ asm file  > assembler   > obj file  > linker  > exec
                           obj files   ^
                           static libs ^
 ```
+* compilers: high lvl code into machine code or obj file
+
+# buffer overflows
+* unchecked buffer limits (eg strcpy)
+  - overwrite ebp, eip, etc
+  - cna be modeled w pseudo code tracked from ebp
+* known vulnerable funx available
+  - do not validate input or do not checkinput bounds
+* fuzzing: checking input viablity
+* pattern_create.rb and other msf modules to find offsets
+  - ow eip offset to pt to shellcode/mal code
+    * sheelcode can be offset w nop slide for less necess acc/less interference
+* aslr requires running program debugging
+* dep bypass via rop
+  - gadgets w ret to link not applicable to dep bc already in chain
+* canaries
+  - can be retrieved or bf
+  - if ow exception handler structure, can get exec before canary
+    * "safeseh" intro due to this
+
