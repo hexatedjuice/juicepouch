@@ -3,7 +3,6 @@
 from lxml import html
 import requests
 import bs4
-import urllib
 import re
 import sys
 
@@ -20,8 +19,8 @@ def main(argv):
 	try:
 		result = login(baseUrl, payload, r)
 	except:
-		invalidServer()
-
+		invalidServer(
+)
 	if "Your attempt to log in was unsuccessful" in result.text:
 		invalidLogin()
 	elif "Schedule" in result.text:
