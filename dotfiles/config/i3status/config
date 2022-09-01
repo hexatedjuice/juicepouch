@@ -1,0 +1,50 @@
+general {
+        colors = true
+        interval = 1
+        output_format = "i3bar"
+}
+
+order += "disk /"
+order += "disk /home"
+order += "volume master"
+order += "wireless _first_"
+order += "battery all"
+order += "tztime local"
+
+wireless _first_ {
+        format_up = " (%essid - %quality) %ip"
+        format_down = "down"
+}
+
+volume master {
+        format = " %volume"
+        format_muted = " (%volume)"
+        device = "default"
+        mixer = "Master"
+        mixer_idx = 0
+}
+
+battery all {
+        format = "%status %percentage %emptytime"
+        status_bat = ""
+        status_chr = ""
+        status_full = ""
+        low_threshold = 15
+        threshold_type = percentage
+        integer_battery_capacity = true
+        color_good = "#0000FF"
+	path= "/sys/class/power_supply/BAT%d/uevent"
+	last_full_capacity = true
+}
+
+tztime local {
+        format = " %h %d, %Y %I:%M:%S"
+}
+
+disk "/" {
+        format = " / %avail"
+}
+
+disk "/home" {
+        format = " /home/ %avail"
+}

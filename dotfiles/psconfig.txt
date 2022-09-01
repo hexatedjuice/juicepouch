@@ -1,0 +1,13 @@
+# Use WinTab
+UseSystemStylus 0
+
+# Use Legacy Healing Brush
+LegacyHealingBrush 1
+
+# Disable Scratch Compression for fast HDD
+VMCompressionPages 0
+
+# Use Overscrolling
+OverscrollingAlways 2
+
+
