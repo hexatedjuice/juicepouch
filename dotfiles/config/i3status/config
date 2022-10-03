@@ -8,12 +8,20 @@ order += "disk /"
 order += "disk /home"
 order += "volume master"
 order += "wireless _first_"
+order += "ethernet _first_"
 order += "battery all"
 order += "tztime local"
 
 wireless _first_ {
         format_up = " (%essid - %quality) %ip"
-        format_down = "down"
+        format_down = ""
+	color_good = "#ebdbb2"
+}
+
+ethernet _first_ {
+        format_up = "  %ip (%speed)"
+        format_down = ""
+	color_good = "#ebdbb2"
 }
 
 volume master {
@@ -22,6 +30,9 @@ volume master {
         device = "default"
         mixer = "Master"
         mixer_idx = 0
+	color_good = "#ebdbb2"
+	color_bad = "#ebdbb2"
+	color_degraded = "#ebdbb2"
 }
 
 battery all {
@@ -32,7 +43,7 @@ battery all {
         low_threshold = 15
         threshold_type = percentage
         integer_battery_capacity = true
-        color_good = "#0000FF"
+        color_good = "#ebdbb2"
 	path= "/sys/class/power_supply/BAT%d/uevent"
 	last_full_capacity = true
 }
