@@ -1,5 +1,5 @@
 # juicepouch - hexatedjuice's public repo
-Welcome to my personal repository. Check out my [website](http://cs.utexas.edu/~juice/) or my [resume](techResumeJoyceLai.pdf).
+Welcome to my personal repository. Check out my [website](http://cs.utexas.edu/~juice/) or my [resume](sweResume_censored.pdf).
 
 
 1. **ccna**: my notes and studying for my ccn certification
